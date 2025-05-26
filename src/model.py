@@ -18,10 +18,24 @@ def create_model(hidden_layer_sizes=(128, 64,), activation='relu',
         early_stopping=True  # to prevent long training if no improvement
     )
 
+# MLP_PARAM_GRID = {
+#     'hidden_layer_sizes': [(128, 64), (64, 64), (128, 128), (256, 128)],
+#     'activation': ['relu'],
+#     'alpha': [0.0001, 0.001, 0.01],
+#     'learning_rate': ['adaptive'],
+#     'solver': ['adam'],
+#     'max_iter': [200, 500, 1000],
+# }
+
 MLP_PARAM_GRID = {
-    'hidden_layer_sizes': [(128, 64), (64, 64), (128,), (256, 128)],
-    'activation': ['relu', 'tanh', 'logistic'],
-    'alpha': [0.0001, 0.001, 0.01],
+    'activation': ['relu'],
+    'alpha': [0.001],
+    'hidden_layer_sizes': [(64, 64)],
     'learning_rate': ['adaptive'],
-    'solver': ['adam', 'sgd'],
+    'max_iter': [200],
+    'solver': ['adam']
 }
+
+
+# INFO:train:Best parameters: {'activation': 'relu', 'alpha': 0.001, 'hidden_layer_sizes': (64, 64), 'learning_rate': 'adaptive', 'max_iter': 200, 'solver': 'adam'}
+# INFO:train:Best recall score (CV): 0.9767

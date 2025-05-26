@@ -1,6 +1,6 @@
 import logging
 from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import make_scorer, recall_score
+from sklearn.metrics import make_scorer, recall_score, f1_score
 from joblib import dump
 
 from data_loader import load_data
@@ -20,14 +20,14 @@ def train_model(data_path: str, model_output_path: str):
 
     # Define model and GridSearchCV
     mlp = create_model(random_state=42)
-    scoring = make_scorer(recall_score, pos_label=1)
+    scoring = make_scorer(f1_score, pos_label=1)
 
     grid_search = GridSearchCV(
         estimator=mlp,
         param_grid=MLP_PARAM_GRID,
         scoring=scoring,
         n_jobs=-1,
-        cv=3,
+        cv=5,
         verbose=2
     )
 
