@@ -13,7 +13,7 @@ def create_model(hidden_layer_sizes=(128, 64,), activation='relu',
         alpha=alpha,
         learning_rate=learning_rate,
         learning_rate_init=learning_rate_init,
-        max_iter=300,
+        max_iter=50,
         random_state=random_state,
         early_stopping=True  # to prevent long training if no improvement
     )
@@ -24,7 +24,7 @@ def create_model(hidden_layer_sizes=(128, 64,), activation='relu',
 #     'alpha': [0.0001, 0.001, 0.01],
 #     'learning_rate': ['adaptive'],
 #     'solver': ['adam'],
-#     'max_iter': [200, 500, 1000],
+#     'max_iter': [(50, 100, 200, 500, 1000],
 # }
 
 MLP_PARAM_GRID = {
@@ -32,7 +32,7 @@ MLP_PARAM_GRID = {
     'alpha': [0.001],
     'hidden_layer_sizes': [(64, 64)],
     'learning_rate': ['adaptive'],
-    'max_iter': [200],
+    'max_iter': [100],
     'solver': ['adam']
 }
 

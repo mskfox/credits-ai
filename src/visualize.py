@@ -81,3 +81,19 @@ def plot_metrics_vs_threshold(y_true, y_proba):
     plt.legend()
     plt.grid(True)
     plt.show()
+
+def plot_loss_curve(loss_curve):
+    """
+    Plot training loss curve over epochs
+
+    Args:
+        loss_curve (list): List of loss values per training epoch
+    """
+    plt.figure(figsize=(8, 6))
+    plt.plot(loss_curve, marker='o', markersize=4)
+    plt.title("Model Training Loss Curve")
+    plt.xlabel("Training Epochs")
+    plt.ylabel("Loss")
+    plt.grid(True, linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    plt.show()
