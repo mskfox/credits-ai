@@ -17,7 +17,7 @@ def evaluate_model(model, X_test: np.ndarray, y_test: np.ndarray):
     y_pred = model.predict(X_test)
     y_proba = model.predict_proba(X_test)[:, 1]
 
-    threshold = 0.9
+    threshold = 0.925
     y_pred = (y_proba >= threshold).astype(int)
 
     report = classification_report(y_test, y_pred, target_names=['Legit', 'Fraud'])
